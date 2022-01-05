@@ -11,19 +11,23 @@ public class Quiz implements ActionListener{
             "What is the speed of sound ?",
             "How many time zones are there ?",
             "What was Java originally called ?",
-            "How long is the largest butterfly ?"
+            "How long is the largest butterfly ?",
+
     };
+    // code umschreiben, sodass es mit mehr fragen gehen soll
+    // statt hardcoden ein file einfügen
     String[][] options =   {
             {"120 km/h","1,200km/h","400 ","700 "},
             {"16","24","32","8"},
             {"Apple","Latte","Oak","Koffing"},
-            {"40cm","35cm","28 cm","20cm"}
+            {"40cm","35cm","28 cm","20cm"},
+
     };
     char[] answers =      {
             'A',
             'B',
             'C',
-            'C'
+            'D'
     };
     char guess;
     char answer;
@@ -259,6 +263,7 @@ public class Quiz implements ActionListener{
         pause.start();
     }
     public void results(){
+        // a,b,c,d bei results wegbringen und rahmen
 
         buttonA.setEnabled(false);
         buttonB.setEnabled(false);
@@ -273,6 +278,15 @@ public class Quiz implements ActionListener{
         answer_labelB.setText("");
         answer_labelC.setText("");
         answer_labelD.setText("");
+        buttonA.setText("");
+        buttonB.setText("");
+        buttonC.setText("");
+        buttonD.setText("");
+        buttonA.setBackground(new Color(255,251,242));  //background color of the button
+        buttonB.setBackground(new Color(255,251,242));
+        buttonC.setBackground(new Color(255,251,242));
+        buttonD.setBackground(new Color(255,251,242));
+
 
         number_right.setText("("+correct_guesses+"/"+total_questions+")");
         percentage.setText(result+"%");
