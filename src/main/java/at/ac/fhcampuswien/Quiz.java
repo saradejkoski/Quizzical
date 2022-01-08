@@ -32,7 +32,7 @@ public class Quiz implements ActionListener{
     char guess;
     char answer;
     int index; //?
-    int correct_guesses =0;
+    int correct_guesses = 0;
     int total_questions = questions.length;
     int result;
 
