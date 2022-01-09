@@ -1,5 +1,6 @@
 package at.ac.fhcampuswien;
 
+
 import java.awt.event.*;
 import java.awt.*;
 import javax.swing.*;
@@ -12,6 +13,14 @@ public class Quiz implements ActionListener{
             "How many time zones are there ?",
             "What was Java originally called ?",
             "How long is the largest butterfly ?",
+            "which metal is best for fabrication of airplane ?",
+            "Which element has the lowest boiling point ?",
+            "What is the unit used to measure energy ? ",
+            "Who is  the first Pokemon in the Pokedex ?",
+            "What is the nine-tail fox's name ?",
+            "Who was the sixth hokage ?",
+
+
 
     };
     // code umschreiben, sodass es mit mehr fragen gehen soll
@@ -21,18 +30,33 @@ public class Quiz implements ActionListener{
             {"16","24","32","8"},
             {"Apple","Latte","Oak","Koffing"},
             {"40cm","35cm","28 cm","20cm"},
+            {"Iron","Copper","Aluminum","Silver"},
+            {"Helium","Oxygen","Halogen","Carbon"},
+            {"Pascal","Joule","Watt","Newton"},
+            {"Mew","pikachu","Bulbasaur","Caterpie"},
+            {"Kurama","Saiken","Isobu","shukaku"},
+            {"Naruto","Neji","Kakashi","Nagato"}
+
 
     };
+
     char[] answers =      {
+            'B',
+            'B',
+            'C',
+            'A',
+            'C',
             'A',
             'B',
             'C',
-            'D'
+            'A',
+            'C',
+
     };
     char guess;
     char answer;
     int index; //?
-    int correct_guesses = 0;
+    int correct_guesses =0;
     int total_questions = questions.length;
     int result;
 
@@ -44,10 +68,12 @@ public class Quiz implements ActionListener{
     JButton buttonB = new JButton();
     JButton buttonC = new JButton();
     JButton buttonD = new JButton();
+
     JLabel answer_labelA = new JLabel();
     JLabel answer_labelB = new JLabel();
     JLabel answer_labelC = new JLabel();
     JLabel answer_labelD = new JLabel();
+
 
     JTextField number_right = new JTextField();
     JTextField percentage = new JTextField();
@@ -55,12 +81,12 @@ public class Quiz implements ActionListener{
 
     public Quiz() {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //behavior the frame at close
-        frame.setSize(550,550);
+        frame.setSize(800,550);
         frame.getContentPane().setBackground(new Color(255,251,242)); //color of the background
         frame.setLayout(null);  //?
         frame.setResizable(false); //changed size of the window
 
-        textfield.setBounds(0,0,525,50); //position of the questionnumbertitle
+        textfield.setBounds(0,0,775,50); //position of the questionnumbertitle
         textfield.setBackground(new Color(255,251,242)); //background color
         textfield.setForeground(new Color(50,50,50));  //color of the font
         textfield.setFont(new Font("LCD",Font.BOLD,30)); //font, fontweight and fontsize
@@ -71,7 +97,7 @@ public class Quiz implements ActionListener{
         // The code setEnabled(false), disables this TextField.
 
 
-        textarea.setBounds(0,50,550,50);
+        textarea.setBounds(0,50,800,50);
         textarea.setLineWrap(true);
         textarea.setWrapStyleWord(true);
         textarea.setBackground(new Color(255,251,242));
@@ -155,6 +181,7 @@ public class Quiz implements ActionListener{
         frame.add(answer_labelB);
         frame.add(answer_labelC);
         frame.add(answer_labelD);
+
         frame.add(buttonA);
         frame.add(buttonB);
         frame.add(buttonC);
@@ -177,6 +204,7 @@ public class Quiz implements ActionListener{
             answer_labelB.setText(options[index][1]);
             answer_labelC.setText(options[index][2]);
             answer_labelD.setText(options[index][3]);
+
         }
     }
     @Override
@@ -231,6 +259,7 @@ public class Quiz implements ActionListener{
         if(answers[index] != 'D')
             answer_labelD.setForeground(new Color(255,0,0));
 
+
         if(answers[index] == 'A')
             answer_labelA.setForeground(new Color(25,255,0));  //right answer turns green
         if(answers[index] == 'B')
@@ -239,6 +268,7 @@ public class Quiz implements ActionListener{
             answer_labelC.setForeground(new Color(25,255,0));
         if(answers[index] == 'D')
             answer_labelD.setForeground(new Color(25,255,0));
+
 
         Timer pause = new Timer(2000, new ActionListener() {
 
@@ -278,9 +308,14 @@ public class Quiz implements ActionListener{
         answer_labelB.setText("");
         answer_labelC.setText("");
         answer_labelD.setText("");
+
+        buttonA.setVisible(false);
         buttonA.setText("");
+        buttonB.setVisible(false);
         buttonB.setText("");
+        buttonC.setVisible(false);
         buttonC.setText("");
+        buttonD.setVisible(false);
         buttonD.setText("");
         buttonA.setBackground(new Color(255,251,242));  //background color of the button
         buttonB.setBackground(new Color(255,251,242));
