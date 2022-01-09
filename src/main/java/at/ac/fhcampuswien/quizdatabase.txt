@@ -1,4 +1,4 @@
-What is the speed of sound?120 km/h;1.200km/h;400;700km/h;1
+What is the speed of sound?;120 km/h;1.200km/h;400;700km/h;1
 How many time zones are there ?;16;24;32;8;1
 What was Java originally called ?;Apple;Latte;Oak;Koffing;2
 How long is the largest butterfly ?;40cm;35cm;28 cm;20cm;2
