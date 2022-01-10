@@ -160,19 +160,19 @@ public class Quiz implements ActionListener{
 
 
 
-        number_right.setBounds(170, 170 ,200,100);
+        number_right.setBounds(170, 170 ,425,100);
         number_right.setBackground(new Color(255,251,242));
         number_right.setForeground(new Color(50,50,50));
         number_right.setFont(new Font("LCD",Font.BOLD,50));
-        number_right.setBorder(BorderFactory.createBevelBorder(1));
+        number_right.setBorder(null);
         number_right.setHorizontalAlignment(JTextField.CENTER);
         number_right.setEditable(false);
 
-        percentage.setBounds(170,270,200,100);
+        percentage.setBounds(170,270,425,100);
         percentage.setBackground(new Color(255,251,242));
         percentage.setForeground(new Color(50,50,50));
         percentage.setFont(new Font("LCD",Font.BOLD,50));
-        percentage.setBorder(BorderFactory.createBevelBorder(1));
+        percentage.setBorder(null);
         percentage.setHorizontalAlignment(JTextField.CENTER);
         percentage.setEditable(false);
 
