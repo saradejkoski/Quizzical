@@ -1,0 +1,10 @@
+What is the speed of sound?;120 km/h;1200km/h;400km/h;700km/h;1
+How many time zones are there ?;16;24;32;8;1
+What was Java originally called ?;Apple;Latte;Oak;Koffing;2
+How long is the largest butterfly ?;40cm;35cm;28cm;20cm;2
+Which metal is best for fabrication of airplane ?;Iron;Copper;Aluminum;Silver;2
+Which element has the lowest boiling point ?;Helium;Oxygen;Halogen;Carbon;0
+What is the unit used to measure energy ?;Pascal;Joule;Watt;Newton;2
+Who is the first Pokemon in the Pokedex ?; Mew;Pikachu;Bulbasaur;Caterpie;2
+What is the nine-tail fox's name ?;Kurama;Saiken;Isobu;Shukaku;0
+Who was the sixth Hokage ?;Naruto;Neji;Kakashi;Nagato;3
