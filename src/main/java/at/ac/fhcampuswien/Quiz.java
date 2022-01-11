@@ -130,19 +130,23 @@ public class Quiz implements ActionListener {
         answer_labelD.setFont(new Font("LCD", Font.PLAIN, 35));
 
 
-        number_right.setBounds(170, 170, 200, 100);
-        number_right.setBackground(new Color(255, 251, 242));
-        number_right.setForeground(new Color(50, 50, 50));
-        number_right.setFont(new Font("LCD", Font.BOLD, 50));
+        number_right.setBounds(170, 170 ,200,100);
+        number_right.setBounds(170, 170 ,425,100);
+        number_right.setBackground(new Color(255,251,242));
+        number_right.setForeground(new Color(50,50,50));
+        number_right.setFont(new Font("LCD",Font.BOLD,50));
         number_right.setBorder(BorderFactory.createBevelBorder(1));
+        number_right.setBorder(null);
         number_right.setHorizontalAlignment(JTextField.CENTER);
         number_right.setEditable(false);
 
-        percentage.setBounds(170, 270, 200, 100);
-        percentage.setBackground(new Color(255, 251, 242));
-        percentage.setForeground(new Color(50, 50, 50));
-        percentage.setFont(new Font("LCD", Font.BOLD, 50));
+        percentage.setBounds(170,270,200,100);
+        percentage.setBounds(170,270,425,100);
+        percentage.setBackground(new Color(255,251,242));
+        percentage.setForeground(new Color(50,50,50));
+        percentage.setFont(new Font("LCD",Font.BOLD,50));
         percentage.setBorder(BorderFactory.createBevelBorder(1));
+        percentage.setBorder(null);
         percentage.setHorizontalAlignment(JTextField.CENTER);
         percentage.setEditable(false);
 
@@ -164,14 +168,14 @@ public class Quiz implements ActionListener {
     }
 
     public void loadQuestions() {
-        ArrayList<String> lines = new ArrayList<>();
-        File file = new File("src/main/java/at/ac/fhcampuswien/quizdatabase.txt");
+        ArrayList<String> lines = new ArrayList<>();//wir brauchen diese arry List damit alle Fragen hintereinander gestellt werden
+        File file = new File("src/main/java/at/ac/fhcampuswien/quizdatabase.txt"); //hier ist das relativ gespeicherte file
 
-        try (Scanner scanner = new Scanner(file)) {
-            while (scanner.hasNextLine()) {
-                lines.add(scanner.nextLine());
+        try (Scanner scanner = new Scanner(file)) { //wir möchten aus dem File die Fragen rauskopieren SOLANGE
+            while (scanner.hasNextLine()) {// es eine nächste Linie gibt
+                lines.add(scanner.nextLine());//anschließend gehen wir in die Nächste Zeile
             }
-        } catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) { //wenn das File nicht gefunden wird dann
             e.printStackTrace();
         }
 
@@ -184,9 +188,9 @@ public class Quiz implements ActionListener {
             // line = {Question, Answer1, Answer2, Answer3, Answer4, Nr of correct answer}
             questions[i] = line[0];
             for (int j = 0; j < 4; j++) {
-                options[i][j] = line[j+1];
+                options[i][j] = line[j + 1];
             }
-            answers[i] = (char)(Integer.parseInt(line[5]) + 'A');
+            answers[i] = (char) (Integer.parseInt(line[5]) + 'A');
         }
 
     }
@@ -328,6 +332,30 @@ public class Quiz implements ActionListener {
 
         frame.add(number_right);
         frame.add(percentage);
+        frame.setTitle("Label zentriert");
 
+
+
+     /*       public static void main(String[] args) {
+                JFrame frame = new JFrame();
+                frame.add(createLabel());
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setSize(300, 180);
+                frame.setLocationRelativeTo(null);
+                frame.setTitle("Label zentriert");
+                frame.setVisible(true);
+            }
+
+            private static JLabel createLabel() {
+                JLabel label = new JLabel("Ein Text", SwingConstants.CENTER);
+                label.setVerticalAlignment(JLabel.BOTTOM);
+                label.setBorder(new LineBorder(Color.BLACK));
+                return label;
+            }
+        }
+
+
+
+    }*/
     }
 }

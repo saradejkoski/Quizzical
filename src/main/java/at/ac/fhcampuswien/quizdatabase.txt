@@ -4,7 +4,7 @@ What was Java originally called ?;Apple;Latte;Oak;Koffing;2
 How long is the largest butterfly ?;40cm;35cm;28 cm;20cm;2
 Which metal is best for fabrication of airplane ?;Iron;Copper;Aluminum;Silver;2
 Which element has the lowest boiling point ?;Helium;Oxygen;Halogen;Carbon;0
-What is the unit used to measure energy ? ;Pascal;Joule;Watt;Newton;2
-Who is  the first Pokemon in the Pokedex ?; Mew;pikachu;Bulbasaur;Caterpie;2
+What is the unit used to measure energy ?;Pascal;Joule;Watt;Newton;2
+Who is  the first Pokemon in the Pokedex ?; Mew;Pikachu;Bulbasaur;Caterpie;2
 What is the nine-tail fox's name ?;Kurama;Saiken;Isobu;shukaku;4
-Who was the sixth hokage ?; Naruto;Neji;Kakashi;Nagato;3
+Who was the sixth hokage ?;Naruto;Neji;Kakashi;Nagato;3
