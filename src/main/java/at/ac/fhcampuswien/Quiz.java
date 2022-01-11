@@ -24,7 +24,7 @@ public class Quiz implements ActionListener {
 
     char guess;
     char answer;
-    int index; //?
+    int index; //Nummer bei der Frage bei der man ganz ist
     int correct_guesses = 0;
     int total_questions;
     int result;
