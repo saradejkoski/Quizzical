@@ -153,6 +153,7 @@ public class Quiz implements ActionListener {
         // The code setEnabled(false), disables this TextField.
 
 
+
         frame.add(answer_labelA);   //adding the answerlabels that we created to the frame
         frame.add(answer_labelB);
         frame.add(answer_labelC);
