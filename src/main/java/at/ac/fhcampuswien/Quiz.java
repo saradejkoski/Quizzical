@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.io.FileReader;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Quiz implements ActionListener {
@@ -16,7 +17,7 @@ public class Quiz implements ActionListener {
     char[] answers;
 
     char answer;    // A-D
-    int index; //Nummer bei der Frage bei der man grad ist
+    int index; // number of question you currently are
     int correct_guesses = 0;
     int total_questions;
     int result;
@@ -26,15 +27,21 @@ public class Quiz implements ActionListener {
     JTextField textfield = new JTextField();  //creating the textfield for the questions and the questionnumbertitle
     JTextArea textarea = new JTextArea();  // creating the textarea for the answers
     JButton buttonA = new JButton();    //creating buttons a-d to submit answer
-    JButton buttonB = new JButton();
+    JButton buttonB = new JButton(); //we put label a,b,c, d on
     JButton buttonC = new JButton();
     JButton buttonD = new JButton();
 
     JLabel answer_labelA = new JLabel();         //creating answerlabels a-d
-    JLabel answer_labelB = new JLabel();
+    JLabel answer_labelB = new JLabel();         //we use this label because we use setbounds
     JLabel answer_labelC = new JLabel();
     JLabel answer_labelD = new JLabel();
-
+/*
+What is Jlabel?
+Label is a class of java Swing .
+JLabel is used to display a short string or an image icon.
+JLabel can display text, image or both .
+JLabel is only a display of text or image and it cannot get focus .
+ */
 
     JTextField number_right = new JTextField();     //creating textfield for number of right answered questions
     JTextField percentage = new JTextField();        // creating textfield for the precentage of the right answered questions
@@ -50,6 +57,11 @@ public class Quiz implements ActionListener {
         frame.setResizable(false); //changed size of the window
 
         textfield.setBounds(0, 0, 775, 50); //position of the questionnumbertitle
+        /*
+        The setBounds() method is used in such a situation to set the position and size.
+         To specify the position and size of the components manually,
+         the layout manager of the frame can be null.
+         */
         textfield.setBackground(new Color(255, 251, 242)); //background color
         textfield.setForeground(new Color(50, 50, 50));  //color of the font
         textfield.setFont(new Font("LCD", Font.BOLD, 30)); //font, fontweight and fontsize
@@ -175,24 +187,28 @@ public class Quiz implements ActionListener {
         File file = new File("src/main/java/at/ac/fhcampuswien/quizdatabase.txt"); //hier ist das relativ gespeicherte file
 
         try (Scanner scanner = new Scanner(file)) { //wir möchten aus dem File die Fragen rauskopieren SOLANGE
-            while (scanner.hasNextLine()) {// es eine nächste Linie gibt
-                lines.add(scanner.nextLine());//anschließend gehen wir in die Nächste Zeile
+            while (scanner.hasNextLine()) {// solange es eine nächste Linie gibt --Kommt noch was?
+                lines.add(scanner.nextLine());//wir leseen die nächste Zeile und fügen sie zu Arraylist hinzu
             }
-        } catch (FileNotFoundException e) { //wenn das File nicht gefunden wird dann
-            e.printStackTrace();
+        } catch (FileNotFoundException e) { //wenn das File nicht gefunden wird - in dem Fall unmöglich aber JAVA möchte
+            e.printStackTrace();//dass man den Fall berücksicht
         }
 
-        total_questions = lines.size();
-        questions = new String[total_questions];
-        options = new String[total_questions][4];
-        answers = new char[total_questions];
-        for (int i = 0; i < total_questions; i++) {
-            String[] line = lines.get(i).split(";");
+        total_questions = lines.size(); // nach dem Einlesen die Anzahl Elemente in der Lines Array list
+        questions = new String[total_questions];// Index:0 in jeder Zeile
+        options = new String[total_questions][4];//Index: 1 2 3 4 in jeder Zeile
+        answers = new char[total_questions];// Index 5
+        for (int i = 0; i < total_questions; i++) { //wir nehmen aktuelle Zeile (String)
+            String[] line = lines.get(i).split(";"); //splitten auf nach ;
             // line = {Question, Answer1, Answer2, Answer3, Answer4, Nr of correct answer}
-            questions[i] = line[0];
-            for (int j = 0; j < 4; j++) {
-                options[i][j] = line[j + 1];
-            }
+            questions[i] = line[0]; //Position 0 im Array ist die Frage
+            /* other possible solution: for (int j = 0; j < 4; j++) { // wir  beginnen mit 1 und enden bei 4
+                options[i][j] = line[j + 1]; //i ist immer die Zeile in der wir sind
+            }*/
+            System.arraycopy(line, 1, options[i], 0, 4); /*
+            1 Startposition und wie viele Elemente darau
+            es nimmt lines ...beginnt bei Position 0
+            */
             answers[i] = (char) (Integer.parseInt(line[5]) + 'A');
         }
 
@@ -338,26 +354,6 @@ public class Quiz implements ActionListener {
 
 
 
-     /*       public static void main(String[] args) {
-                JFrame frame = new JFrame();
-                frame.add(createLabel());
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setSize(300, 180);
-                frame.setLocationRelativeTo(null);
-                frame.setTitle("Label zentriert");
-                frame.setVisible(true);
-            }
 
-            private static JLabel createLabel() {
-                JLabel label = new JLabel("Ein Text", SwingConstants.CENTER);
-                label.setVerticalAlignment(JLabel.BOTTOM);
-                label.setBorder(new LineBorder(Color.BLACK));
-                return label;
-            }
-        }
-
-
-
-    }*/
     }
 }
