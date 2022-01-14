@@ -16,10 +16,10 @@ public class Quiz implements ActionListener {
     char[] answers;
 
     char answer;    // A-D
-    int index; //Nummer bei der Frage bei der man grad ist
-    int correct_guesses = 0;
-    int total_questions;
-    int result;
+    int index; //Number at the question you are at the moment
+    int correct_guesses = 0; //amount of right answers
+    int total_questions; //total amount of questions
+    int result; //result in %
 
 
     JFrame frame = new JFrame();  //everything is on the frame (the background)
@@ -167,7 +167,7 @@ public class Quiz implements ActionListener {
         frame.add(textfield);  // adding the questions that we created to the frame
         frame.setVisible(true);  //window does not open if false
 
-        nextQuestion();     // jump to next question
+        nextQuestion();     // jump to nextQuestion
     }
 
     public void loadQuestions() {
@@ -190,9 +190,7 @@ public class Quiz implements ActionListener {
             String[] line = lines.get(i).split(";");
             // line = {Question, Answer1, Answer2, Answer3, Answer4, Nr of correct answer}
             questions[i] = line[0];
-            for (int j = 0; j < 4; j++) {
-                options[i][j] = line[j + 1];
-            }
+            System.arraycopy(line, 1, options[i], 0, 4);
             answers[i] = (char) (Integer.parseInt(line[5]) + 'A');
         }
 
@@ -225,32 +223,32 @@ public class Quiz implements ActionListener {
         if(e.getSource()==buttonA) {
             answer= 'A';
             if(answer == answers[index]) {      //if the player clicks on A and A is the right answer then
-                correct_guesses++;              // correct guesses is increased (+1)
+                correct_guesses++;              // correct guesses is increased by 1
             }
         }
         if(e.getSource()==buttonB) {
             answer= 'B';
-            if(answer == answers[index]) {
-                correct_guesses++;
+            if(answer == answers[index]) {      //if the player clicks on B and B is the right answer then
+                correct_guesses++;      // correct guesses is increased by 1
             }
         }
         if(e.getSource()==buttonC) {
             answer= 'C';
-            if(answer == answers[index]) {
-                correct_guesses++;
+            if(answer == answers[index]) {      //if the player clicks on C and C is the right answer then
+                correct_guesses++;      // correct guesses is increased by 1
             }
         }
         if(e.getSource()==buttonD) {
             answer= 'D';
-            if(answer == answers[index]) {
-                correct_guesses++;
+            if(answer == answers[index]) {      //if the player clicks on D and D is the right answer then
+                correct_guesses++;      // correct guesses is increased by 1
             }
         }
         displayAnswer(); //jumps to display answer
     }
     public void displayAnswer() {
 
-        buttonA.setEnabled(false);
+        buttonA.setEnabled(false); //disabling the buttons
         buttonB.setEnabled(false);
         buttonC.setEnabled(false);
         buttonD.setEnabled(false);
@@ -287,15 +285,15 @@ public class Quiz implements ActionListener {
 
                 answer = ' ';
                 buttonA.setEnabled(true);   // allows user to press button
-                buttonB.setEnabled(true);   // allows user to press button
-                buttonC.setEnabled(true);   // allows user to press button
-                buttonD.setEnabled(true);   // allows user to press button
+                buttonB.setEnabled(true);
+                buttonC.setEnabled(true);
+                buttonD.setEnabled(true);
                 index++;
                 nextQuestion(); // jumps to nextquestion
             }
         });
-        pause.setRepeats(false);
-        pause.start();
+        pause.setRepeats(false); //timer stops
+        pause.start(); //timer starts again for next question
     }
 
     public void results(){
