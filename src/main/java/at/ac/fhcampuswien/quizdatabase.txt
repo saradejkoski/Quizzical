@@ -8,4 +8,3 @@ What is the unit used to measure energy ?;Pascal;Joule;Watt;Newton;2
 Who is the first Pokemon in the Pokedex ?;Mew;Pikachu;Bulbasaur;Caterpie;2
 What is the nine-tail fox's name ?;Kurama;Saiken;Isobu;Shukaku;0
 Who was the sixth Hokage ?;Naruto;Neji;Kakashi;Nagato;2
-Evaluation of 8^3*8^2-8^5 is...?;1;0;8;None of these;0
