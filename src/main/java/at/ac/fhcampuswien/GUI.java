@@ -17,7 +17,7 @@ public class GUI implements ActionListener {
     private Quiz quiz;
 
     //we seperate the initialisation in two steps which is not so elegant
-    //either the quiz class wouldve to be a static reference so GUI can access..or GUI will become not singleton
+    //either the quiz class would've to be a static reference so GUI can access..or GUI will become not singleton
     public void setQuiz(Quiz quiz) {
         this.quiz = quiz;
     }
