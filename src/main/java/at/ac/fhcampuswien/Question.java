@@ -22,12 +22,6 @@ public class Question {
     public int getCorrectAnswer() {
         return correctAnswer;
     }
-/*
-Dann könntest du statt den Arrays die derzeit für Fragen, Antwort-Optionen
- und Antworten erstellt werden ein einziges Array vom Typ Question erstellen,
- die alten Arrays auskommentieren und überall wo die verwendet werden (scheinen ja dann rot auf)
-  auf das neue Array mit Question-Objects umstellen
 
- */
 
 }
