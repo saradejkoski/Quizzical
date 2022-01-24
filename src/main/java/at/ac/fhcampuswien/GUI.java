@@ -1,6 +1,6 @@
 package at.ac.fhcampuswien;
 
-import javax.swing.*; //shdfaöshfgasgf
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
