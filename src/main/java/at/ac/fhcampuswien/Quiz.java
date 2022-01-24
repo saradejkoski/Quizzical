@@ -92,20 +92,7 @@ JLabel is only a display of text or image and it cannot get focus .
         if (answerNumber == questions[index].getCorrectAnswer()) {//hier wird geschaut ist es richtig
             correctAnswers++;
         }
-        GUI.getInstance().displayAnswer(questions[index].getCorrectAnswer());//makes the correct answer green
-        Timer pause = new Timer(2000, new ActionListener() { // after one answered question the player has to wait 2000 milliseconds
 
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-
-                //answer = ' ';
-
-                // jumps to nextquestion
-            }
-        });
-        pause.setRepeats(false);
-        pause.start();
 
         index++;
         nextQuestion();

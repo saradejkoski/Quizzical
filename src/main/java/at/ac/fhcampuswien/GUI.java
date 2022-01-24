@@ -15,6 +15,7 @@ public class GUI implements ActionListener {
     JTextField numberRight = new JTextField();     //creating textfield for number of right answered questions
     JTextField percentage = new JTextField();
     private Quiz quiz;
+    Question currentQuestion;
 
     //we seperate the initialisation in two steps which is not so elegant
     //either the quiz class would've to be a static reference so GUI can access..or GUI will become not singleton
@@ -63,24 +64,7 @@ public class GUI implements ActionListener {
             answers[i].setFont(new Font("LCD", Font.PLAIN, 35));
 
             buttons[i] = new JButton();
-            /*Timer pause = new Timer(2000, new ActionListener() { // after one answered question the player has to wait 2000 milliseconds
 
-                @Override
-                public void actionPerformed(ActionEvent e) {
-
-                    for (int i = 0; i < answers.length; i++) {
-                        answers[i].setForeground(new Color(50, 50, 50)); //makes the answers black
-                        buttons[i].setEnabled(true);// allows user to press button
-                    }
-
-
-                    //answer = ' ';
-
-                    // jumps to nextquestion
-                }
-            });
-            pause.setRepeats(false);
-            pause.start();*/
 
 
             buttons[i].setBounds(0, 120 + i * 100, 75, 75); //position of the textfield and size of the button
@@ -146,21 +130,10 @@ public class GUI implements ActionListener {
 
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
 
-        for (int i = 0; i < buttons.length; i++) {
-            buttons[i].setEnabled(false);
-        }
-        for (int i = 0; i < buttons.length; i++) {//wir gehen 0-3 durch und schauen wars der der geklickt wurde?
-            if (e.getSource() == buttons[i]) {
-                quiz.answerHandover(i);
-            }
-        }
-
-    }
 
     public void displayQuestion(Question question, int questionNumber) {
+        currentQuestion=question;
         textArea.setText(question.getQuestion());
         questionTextField.setText("Question: " + questionNumber);
         for (int i = 0; i < answers.length; i++) {
@@ -168,10 +141,19 @@ public class GUI implements ActionListener {
         }
     }
 
-    public void displayAnswer(int correctAnswer) {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+        for (int i = 0; i < buttons.length; i++) {
+            buttons[i].setEnabled(false);
+
+        }
+
+
+
 
         for (int i = 0; i < answers.length; i++) {
-            if (i == correctAnswer) {
+            if (i == currentQuestion.getCorrectAnswer()) {
                 answers[i].setForeground(new Color(25, 255, 0));
             } else {
                 answers[i].setForeground(new Color(255, 0, 0));
@@ -184,15 +166,21 @@ public class GUI implements ActionListener {
         Timer pause = new Timer(2000, new ActionListener() { // after one answered question the player has to wait 2000 milliseconds
 
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent a) {//die innere Variable überdeckt die äußere wenn die ganze Methode
 
                 for (int i = 0; i < answers.length; i++) {
                     answers[i].setForeground(new Color(50, 50, 50)); //makes the answers black
                     buttons[i].setEnabled(true);// allows user to press button
+
+                }
+                for (int i = 0; i < buttons.length; i++) {//wir gehen 0-3 durch und schauen wars der der geklickt wurde?
+                    if (e.getSource() == buttons[i]) {
+                        quiz.answerHandover(i);
+                    }
                 }
 
 
-                //answer = ' ';
+               //  answer = ' ';
 
                 // jumps to nextquestion
             }
