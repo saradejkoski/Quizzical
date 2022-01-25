@@ -127,6 +127,11 @@ public class GUI implements ActionListener {
     }
 
 
+    /**
+     * This method is responsible for displaying the current question into the textarea for the question
+     * @param question
+     * @param questionNumber
+     */
 
     public void displayQuestion(Question question, int questionNumber) {
         currentQuestion=question;
@@ -137,6 +142,11 @@ public class GUI implements ActionListener {
         }
     }
 
+    /**
+     * This method disables the buttons after pressing the button once to summit the answer and it also turn the answers green/red
+     * It also sets the timer and turns the answer black again (making it ready for the next question)
+     * @param e
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -188,7 +198,7 @@ public class GUI implements ActionListener {
     /**
      * this method is responsible for the results.
      * @param correctAnswers takes in the correct answers of the user
-     * @param totalQuestions in comparison to the toal questions.
+     * @param totalQuestions in comparison to the total questions.
      */
     public void displayResults(int correctAnswers, int totalQuestions) {
         double result = (int) ((correctAnswers / (double) totalQuestions) * 100);
