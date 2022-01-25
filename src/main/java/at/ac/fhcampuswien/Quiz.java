@@ -60,17 +60,18 @@ public class Quiz implements ActionListener {
 
         GUI gui = GUI.getInstance();
         if (index >= totalQuestions) {        // if number of current question is a higher than the number of the total questions
-            gui.displayResults(correctAnswers,totalQuestions);                      //jump to result
+            gui.displayResults(correctAnswers, totalQuestions);                      //jump to result
         } else {
             //we
 
-            gui.displayQuestion(questions[index],index+1);//eckige klammern beim index wird nur beim indizieren benötigt...otherwise its only  a number
+            gui.displayQuestion(questions[index], index + 1);//eckige klammern beim index wird nur beim indizieren benötigt...otherwise its only  a number
 
         }
     }
 
     /**
      * this answer method takes the parameter of the selected method and hands it over.
+     *
      * @param answerNumber is the number of the selected answer option
      */
     public void answerHandover(int answerNumber) {
@@ -85,6 +86,7 @@ public class Quiz implements ActionListener {
 
     /**
      * that method is used to change the color after the user clicked on something and takes care of the interaction.
+     *
      * @param e takes the parameter
      */
 
@@ -92,8 +94,7 @@ public class Quiz implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
 
-        }
-
-
-
     }
+
+
+}
