@@ -1,12 +1,14 @@
 package at.ac.fhcampuswien;
 
 import java.awt.event.*;
+import java.awt.*;
+import javax.swing.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Quiz implements ActionListener {
+public class Quiz  {
 
     Question[] questions;
 
@@ -14,6 +16,8 @@ public class Quiz implements ActionListener {
     int index; // number of question you currently are
     int correctAnswers = 0;
     int totalQuestions;
+
+
 
 
     public Quiz() { //the constructor starts here
@@ -82,15 +86,7 @@ public class Quiz implements ActionListener {
         nextQuestion();
     }
 
-    /**
-     * that method is used to change the color after the user clicked on something and takes care of the interaction.
-     *
-     * @param e takes the parameter
-     */
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
 
 
-    }
+
 }
