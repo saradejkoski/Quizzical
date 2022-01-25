@@ -62,8 +62,6 @@ public class Quiz implements ActionListener {
         if (index >= totalQuestions) {        // if number of current question is a higher than the number of the total questions
             gui.displayResults(correctAnswers, totalQuestions);                      //jump to result
         } else {
-            //we
-
             gui.displayQuestion(questions[index], index + 1);//eckige klammern beim index wird nur beim indizieren benötigt...otherwise its only  a number
 
         }
