@@ -16,7 +16,7 @@ public class GUI implements ActionListener {
     JTextField percentage = new JTextField();
     private Quiz quiz;
     Question currentQuestion;
-    ImageIcon smiley = new ImageIcon("C:\\temp\\smileyresult.png");
+    ImageIcon smiley = new ImageIcon("src/main/java/at/ac/fhcampuswien/smileyresult.png");
     JLabel imageLabel = new JLabel(smiley);
 
     //we seperate the initialisation in two steps which is not so elegant
@@ -215,4 +215,5 @@ public class GUI implements ActionListener {
         imageLabel.setVisible(true);
     }
 }
+
 
