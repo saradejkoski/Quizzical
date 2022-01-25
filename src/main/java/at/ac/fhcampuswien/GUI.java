@@ -11,11 +11,13 @@ public class GUI implements ActionListener {
     JTextField questionTextField = new JTextField();  //creating the textfield for the questions and the questionnumbertitle
     JTextArea textArea = new JTextArea();  // creating the textarea for the answers
     JButton[] buttons = new JButton[4];//we
-    JLabel[] answers = new JLabel[4];//we know that we have four answer options which we fill into[]. if the number should be changeable arraylist
+    JLabel[] answers = new JLabel[4]; //we know that we have four answer options which we fill into[]. if the number should be changeable arraylist
     JTextField numberRight = new JTextField();     //creating textfield for number of right answered questions
     JTextField percentage = new JTextField();
     private Quiz quiz;
     Question currentQuestion;
+    ImageIcon smiley = new ImageIcon("C:\\temp\\smileyresult.png");
+    JLabel imageLabel = new JLabel(smiley);
 
     //we seperate the initialisation in two steps which is not so elegant
     //either the quiz class would've to be a static reference so GUI can access..or GUI will become not singleton
@@ -80,8 +82,8 @@ public class GUI implements ActionListener {
             frame.add(buttons[i]);
 
         }
-        numberRight.setBounds(170, 170, 200, 100); //position of the number right field
-        numberRight.setBounds(170, 170, 425, 100); //position of the number right field
+        numberRight.setBounds(300, 140, 200, 100); //position of the number right field
+        numberRight.setHorizontalAlignment(JTextField.CENTER);
         numberRight.setBackground(new Color(255, 251, 242)); //background color
         numberRight.setForeground(new Color(50, 50, 50));    //font color
         numberRight.setFont(new Font("LCD", Font.BOLD, 50));     //font, fontweight and fontsize
@@ -92,8 +94,8 @@ public class GUI implements ActionListener {
         // It is still selectable and the user can copy data from it, but the user cannot change the TextField's contents directly.
         // The code setEnabled(false), disables this TextField.
 
-        percentage.setBounds(170, 270, 200, 100);
-        percentage.setBounds(170, 270, 425, 100);
+        percentage.setBounds(300, 240, 200, 100);
+        percentage.setHorizontalAlignment(JTextField.CENTER);
         percentage.setBackground(new Color(255, 251, 242));   //background color
         percentage.setForeground(new Color(50, 50, 50));  //font color
         percentage.setFont(new Font("LCD", Font.BOLD, 50));       //font, fontweight and fontsize
@@ -208,6 +210,9 @@ public class GUI implements ActionListener {
         frame.add(numberRight);        //making the number right field visible by adding it into the frame
         frame.add(percentage);     //making the percentage field visible by adding it into the frame
         frame.setTitle("Label zentriert");
+        frame.add(imageLabel);
+        imageLabel.setBounds(336, 350, 128, 128);
+        imageLabel.setVisible(true);
     }
 }
 
