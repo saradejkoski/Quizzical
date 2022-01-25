@@ -14,14 +14,17 @@ public class Question {
     }
 
     public String[] getAnswerOptions() {
+
         return answerOptions;
     }
 
     public String getQuestion() {
+
         return question;
     }
 
     public int getCorrectAnswer() {
+
         return correctAnswer;
     }
 
