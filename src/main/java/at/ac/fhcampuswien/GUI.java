@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class GUI implements ActionListener {
+
     private static GUI instance; //private variable called instance from type GUI
     JFrame frame = new JFrame();  //everything is on the frame (the background)
     JTextField questionTextField = new JTextField();  //creating the textfield for the questions and the questionnumbertitle
@@ -23,8 +24,7 @@ public class GUI implements ActionListener {
         this.quiz = quiz;
     }
 
-
-//we need textfield and add it to a frame
+    //we need textfield and add it to a frame
 
 
     private GUI() {    //constructor doesnt have a seperate return type
@@ -64,14 +64,10 @@ public class GUI implements ActionListener {
             answers[i].setFont(new Font("LCD", Font.PLAIN, 35));
 
             buttons[i] = new JButton();
-
-
-
             buttons[i].setBounds(0, 120 + i * 100, 75, 75); //position of the textfield and size of the button
             buttons[i].setBackground(new Color(50, 50, 50));  //background color of the button
             buttons[i].setForeground(new Color(255, 251, 242)); //color of the letters
             buttons[i].setFont(new Font("LCD", Font.BOLD, 30));  //font, fontweight and fontsize
-            buttons[i].setFocusable(false);  //?
             buttons[i].addActionListener(this);
 
             buttons[i].setText((char) ('A' + i) + "");
@@ -104,7 +100,6 @@ public class GUI implements ActionListener {
         // It is still selectable and the user can copy data from it, but the user cannot change the TextField's contents directly.
         // The code setEnabled(false), disables this TextField.
 
-
         frame.add(textArea);  // adding the questionnumbertitle that we created to the frame
         frame.add(questionTextField);  // adding the questions that we created to the frame
         frame.setVisible(true);  //window does not open if false
@@ -117,15 +112,17 @@ public class GUI implements ActionListener {
             instance = new GUI(); //the private constructor will be filled
         }
         return instance;
-        /*
-        we have a singleton class because we only have one instance
-        and we can't create more because the constructor is private
-         */
-
-
+       /*
+       we have a singleton class because we only have one instance
+       and we can't create more because the constructor is private
+        */
     }
 
-
+    /**
+     * This method is responsible for displaying the current question into the textarea for the question
+     * @param question
+     * @param questionNumber
+     */
 
     public void displayQuestion(Question question, int questionNumber) {
         currentQuestion=question;
@@ -136,16 +133,18 @@ public class GUI implements ActionListener {
         }
     }
 
+    /**
+     * This method disables the buttons after pressing the button once to summit the answer and it also turn the answers green/red
+     * It also sets the timer and turns the answer black again (making it ready for the next question)
+     * @param e
+     */
+
     @Override
     public void actionPerformed(ActionEvent e) {
 
         for (int i = 0; i < buttons.length; i++) {
             buttons[i].setEnabled(false);
-
         }
-
-
-
 
         for (int i = 0; i < answers.length; i++) {
             if (i == currentQuestion.getCorrectAnswer()) {
@@ -153,29 +152,22 @@ public class GUI implements ActionListener {
             } else {
                 answers[i].setForeground(new Color(255, 0, 0));
             }
-
-
         }
 
-
         Timer pause = new Timer(2000, new ActionListener() { // after one answered question the player has to wait 2000 milliseconds
-
             @Override
             public void actionPerformed(ActionEvent a) {//die innere Variable überdeckt die äußere wenn die ganze Methode
 
                 for (int i = 0; i < answers.length; i++) {
                     answers[i].setForeground(new Color(50, 50, 50)); //makes the answers black
                     buttons[i].setEnabled(true);// allows user to press button
-
                 }
                 for (int i = 0; i < buttons.length; i++) {//wir gehen 0-3 durch und schauen wars der der geklickt wurde?
                     if (e.getSource() == buttons[i]) {
                         quiz.answerHandover(i);
                     }
                 }
-
-
-               //  answer = ' ';
+                //  answer = ' ';
 
                 // jumps to nextquestion
             }
@@ -187,7 +179,7 @@ public class GUI implements ActionListener {
     /**
      * this method is responsible for the results.
      * @param correctAnswers takes in the correct answers of the user
-     * @param totalQuestions in comparison to the toal questions.
+     * @param totalQuestions in comparison to the total questions.
      */
     public void displayResults(int correctAnswers, int totalQuestions) {
         double result = (int) ((correctAnswers / (double) totalQuestions) * 100);
@@ -201,13 +193,11 @@ public class GUI implements ActionListener {
         questionTextField.setText("RESULTS!");  // adding the text to the textfield
         textArea.setText("");       //adding no text to the textarea
 
-
         numberRight.setText("(" + correctAnswers + "/" + totalQuestions + ")");     //adding the text to the field
         percentage.setText(result + "%");     //adding the text to the field
 
         frame.add(numberRight);        //making the number right field visible by adding it into the frame
         frame.add(percentage);     //making the percentage field visible by adding it into the frame
-        frame.setTitle("Label zentriert");
+
     }
 }
-
