@@ -1,8 +1,6 @@
 package at.ac.fhcampuswien;
 
 import java.awt.event.*;
-import java.awt.*;
-import javax.swing.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -12,23 +10,10 @@ public class Quiz implements ActionListener {
 
     Question[] questions;
 
-    char answer;    // A-D
+
     int index; // number of question you currently are
     int correctAnswers = 0;
     int totalQuestions;
-    int result;
-
-/*
-
-What is Jlabel?
-Label is a class of java Swing .
-JLabel is used to display a short string or an image icon.
-JLabel can display text, image or both .
-JLabel is only a display of text or image and it cannot get focus .
- */
-
-    JTextField numberRight = new JTextField();     //creating textfield for number of right answered questions
-    JTextField percentage = new JTextField();        // creating textfield for the precentage of the right answered questions
 
 
     public Quiz() { //the constructor starts here

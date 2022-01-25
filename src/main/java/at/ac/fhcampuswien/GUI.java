@@ -122,11 +122,6 @@ public class GUI implements ActionListener {
         and we can't create more because the constructor is private
          */
 
-        /*
-        es wird immer genau das GUI verändert, was wir vor uns haben.
-        GUI weiß was richtig ist und der handover passiert wahrscheinlich zu früh.
-         */
-
 
     }
 
