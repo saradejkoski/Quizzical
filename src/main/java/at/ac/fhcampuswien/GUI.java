@@ -16,8 +16,7 @@ public class GUI implements ActionListener {
     JTextField percentage = new JTextField();
     private Quiz quiz;
     Question currentQuestion;
-    ImageIcon smiley = new ImageIcon("src/main/java/at/ac/fhcampuswien/smileyresult.png");
-    JLabel imageLabel = new JLabel(smiley);
+
 
     //we seperate the initialisation in two steps which is not so elegant
     //either the quiz class would've to be a static reference so GUI can access..or GUI will become not singleton
@@ -210,6 +209,8 @@ public class GUI implements ActionListener {
         frame.add(numberRight);        //making the number right field visible by adding it into the frame
         frame.add(percentage);     //making the percentage field visible by adding it into the frame
         frame.setTitle("Label zentriert");
+        ImageIcon smiley = new ImageIcon("src/main/java/at/ac/fhcampuswien/smileyresult.png");
+        JLabel imageLabel = new JLabel(smiley);
         frame.add(imageLabel);
         imageLabel.setBounds(336, 350, 128, 128);
         imageLabel.setVisible(true);
